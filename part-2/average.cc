@@ -26,14 +26,15 @@ int main(int argc, char* argv[]) {
   // Each argument is a std::string. You will need to convert each string into
   // a number with the std::stod or std::stof function.
   double sum{0.0};
+  bool is_first{true};
   for (const auto& elements : arguments) {
-    if (elements == "./average") {
+    if (is_first) {
+      is_first = false;
       continue;
     }
     double number{std::stod(elements)};
     sum += number;
   }
-
   /*
   --- ATTEMPT AT USING A FOR LOOP AS OPPOSED TO FOR ELSE [IGNORE] ---
   for (int iteration{0}; iteration < arguments.size(); iteration++) {
